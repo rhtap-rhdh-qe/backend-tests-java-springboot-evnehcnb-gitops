@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: backend-tests-java-springboot-evnehcnb
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: backend-tests-java-springboot-evnehcnb 
+  name: backend-tests-java-springboot-evnehcnb
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: backend-tests-java-springboot-evnehcnb
+    weight: 100 
